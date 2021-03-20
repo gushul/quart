@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: quart_dev
+
+test:
+  <<: *default
+  database: quart_test
+
+
+production:
+  <<: *default
+  database: quart_production
+  username: quart
+  password: <%= ENV['QUARTTEST_DATABASE_PASSWORD'] %>
+
