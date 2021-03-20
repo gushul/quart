@@ -1,24 +1,41 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Dependencies:
+- ruby 3.0.0
+- rails 6.1
+- postgresql 
 
-Things you may want to cover:
+# For testing localy: 
 
-* Ruby version
 
-* System dependencies
+```
+bundle install; rake db:migratt; rails s
+```
 
-* Configuration
+Establish a websocket connection:
+```
+ws://localhost:3000/cable
+```
 
-* Database creation
+Connect to chennal: 
+```
+{
+  "command":"subscribe",
+  "identifier":"{\"channel\":\"ChatChannel\"}"
+}
+```
 
-* Database initialization
+# For testing in prod:
 
-* How to run the test suite
+Establish a websocket connection:
+```
+ws://quarttest.herokuapp.com/cable
+```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Connect to chennal: 
+```
+{
+  "command":"subscribe",
+  "identifier":"{\"channel\":\"ChatChannel\"}"
+}
+```
